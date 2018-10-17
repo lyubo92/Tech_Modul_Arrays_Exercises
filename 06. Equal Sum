@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class equalSum {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] sequence = input.nextLine().split(" ");
+        int[] numbers = new int[sequence.length];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(sequence[i]);
+        }
+        boolean isEqual = false;
+        int currentIndex = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            int leftSum = 0;
+            int rightSum = 0;
+            for (int j = i + 1; j < numbers.length; j++) {
+                rightSum += numbers[j];
+            }
+            for (int k = i - 1; k >= 0; k--) {
+                leftSum += numbers[k];
+            }
+            if (leftSum == rightSum) {
+                isEqual = true;
+                currentIndex = i;
+            }
+        }
+        if (isEqual) {
+            System.out.println(currentIndex);
+        } else {
+            System.out.println("no");
+        }
+    }
+}
