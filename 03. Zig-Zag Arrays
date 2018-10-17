@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class zigZagArrays{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int lines = Integer.parseInt(input.nextLine());
+        String[] first = new String[lines];
+        String[] second = new String[lines];
+        for (int i = 0; i < lines; i++) {
+            String[] currentLine = input.nextLine().split(" ");
+            if (i % 2 == 0){
+                first[i] = currentLine[0];
+                second[i] = currentLine[1];
+            }else{
+                first[i] = currentLine[1];
+                second[i] = currentLine[0];
+            }
+        }
+        for (String number : first){
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        for (String number : second){
+            System.out.print(number + " ");
+        }
+    }
+}
